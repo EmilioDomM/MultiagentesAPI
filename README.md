@@ -6,3 +6,6 @@ Crafted by:
 
 - Emilio Domínguez
 - Marco Lucio
+- Gabriel Mujica
+- Leonardo Pequeño
+- Saul Delgado
