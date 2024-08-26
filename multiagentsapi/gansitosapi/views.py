@@ -21,23 +21,31 @@ class VehicleModel(Model):
         self.schedule = SimultaneousActivation(self)
 
         # Create agent
-        agent = VehicleAgent(1, self)
-        self.grid.place_agent(agent, (5, 0))
-        self.schedule.add(agent)
+        self.agent = VehicleAgent(1, self)
+        self.grid.place_agent(self.agent, (5, 0))
+        self.schedule.add(self.agent)
 
     def step(self):
         self.schedule.step()
+        
+    def reboot_position(self):
+        self.grid.place_agent(self.agent, (5, 0))
+        
 
 # Create the model globally so it's persistent across requests
 model = VehicleModel()
 
 def move_agent(request):
-    # Perform 10 steps of the simulation
-    for _ in range(10):
-        model.step()
+    agent_positions = {}
+    model.reboot_position()
 
-    # Get the final position of the agent
-    agent_position = [agent.pos for agent in model.schedule.agents][0]
-    
-    # Return the position as a JSON response
-    return JsonResponse({"final_position": agent_position})
+    # Perform 10 steps
+    for step in range(10):
+        model.step()
+        # Get the position of each agent
+        positions = [agent.pos for agent in model.schedule.agents]
+        # Store the positions with the step number as the key
+        agent_positions[f"Step {step + 1}"] = positions
+
+    # Return the positions as a JSON response
+    return JsonResponse(agent_positions)
