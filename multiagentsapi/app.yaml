@@ -1,0 +1,18 @@
+runtime: python39
+
+handlers:
+- url: /static
+  static_dir: static/
+
+- url: /.*
+  script: auto
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'multiagentsapi.settings'
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 5
+
+entrypoint: gunicorn -b :$PORT multiagentsapi.wsgi:application
