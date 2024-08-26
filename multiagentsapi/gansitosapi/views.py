@@ -32,12 +32,15 @@ class VehicleModel(Model):
 model = VehicleModel()
 
 def move_agent(request):
-    # Perform 10 steps of the simulation
-    for _ in range(10):
-        model.step()
+    agent_positions = {}
 
-    # Get the final position of the agent
-    agent_position = [agent.pos for agent in model.schedule.agents][0]
-    
-    # Return the position as a JSON response
-    return JsonResponse({"final_position": agent_position})
+    # Perform 10 steps
+    for step in range(10):
+        model.step()
+        # Get the position of each agent
+        positions = [agent.pos for agent in model.schedule.agents]
+        # Store the positions with the step number as the key
+        agent_positions[f"Step {step + 1}"] = positions
+
+    # Return the positions as a JSON response
+    return JsonResponse(agent_positions)
