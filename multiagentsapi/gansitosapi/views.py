@@ -21,18 +21,23 @@ class VehicleModel(Model):
         self.schedule = SimultaneousActivation(self)
 
         # Create agent
-        agent = VehicleAgent(1, self)
-        self.grid.place_agent(agent, (5, 0))
-        self.schedule.add(agent)
+        self.agent = VehicleAgent(1, self)
+        self.grid.place_agent(self.agent, (5, 0))
+        self.schedule.add(self.agent)
 
     def step(self):
         self.schedule.step()
+        
+    def reboot_position(self):
+        self.grid.place_agent(self.agent, (5, 0))
+        
 
 # Create the model globally so it's persistent across requests
 model = VehicleModel()
 
 def move_agent(request):
     agent_positions = {}
+    model.reboot_position()
 
     # Perform 10 steps
     for step in range(10):
