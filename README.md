@@ -40,6 +40,8 @@ Then <br>
 If that doesn't work, try: <br>
 ```python3 manage.py runserver```
 
+At the moment, the only working endpoint at the moment is: <br>
+``` /gansitosapi/move/ ``` <br>
 
 For development purposes, you can modify multiagentsapi/settings.py in order to set ```Debug = True```, so that you get more information on errors. Nevertheless, don't push any code to main with that setting on.
 
