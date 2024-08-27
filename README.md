@@ -14,7 +14,7 @@ Crafted by:
 
 ## Setup
 
-Before running, you should make sure you have this packages installed in your preferred environment:
+Before running, you should make sure you have these packages installed in your preferred environment:
 
 ```
 Django==4.2.15
@@ -29,7 +29,7 @@ python-decouple==3.7
 
 ## Usage
 
-In order to run local server, run this commands:
+In order to run local server, run these commands:
 
 If not already in MultiagentesAPI/multiagentsapi <br>
 ```cd multiagentsapi```
