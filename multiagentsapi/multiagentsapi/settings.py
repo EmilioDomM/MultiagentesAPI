@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w2y1)nr^9g&9afp=kbwo$v^57rgo*u_ii7)e^g=t%r5oz@zrlt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["multiagentsapi-dev.us-west-2.elasticbeanstalk.com", "elasticbeanstalk-us-west-2-897722678971", 'gansitospeligrosos.uc.r.appspot.com' , "127.0.0.1"]
+ALLOWED_HOSTS = ["multiagentsapi-dev.us-west-2.elasticbeanstalk.com", "elasticbeanstalk-us-west-2-897722678971", 'gansitospeligrosos.uc.r.appspot.com' , "127.0.0.1", "localhost"]
 
 
 # Application definition
