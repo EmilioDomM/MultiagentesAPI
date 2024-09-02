@@ -1,10 +1,9 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from .models import VehicleModel  # Import VehicleModel from models.py
+from .models import VehicleModel 
 import json
 
-# Create the model globally so it's persistent across requests
 model = None
 
 @csrf_exempt
