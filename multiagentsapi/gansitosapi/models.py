@@ -77,7 +77,7 @@ class VehicleAgent(Agent):
 class VehicleModel(Model):
     def __init__(self, n, initial_positions, objectives):
         super().__init__()
-        self.grid = MultiGrid(11, 11, torus=False)
+        self.grid = MultiGrid(2000, 2000, torus=False)
         self.schedule = SimultaneousActivation(self)
         self.n = n
 
